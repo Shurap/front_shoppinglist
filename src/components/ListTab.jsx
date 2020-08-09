@@ -8,6 +8,9 @@ import { useDispatch } from 'react-redux'
 import { addPageTitleToStore } from '../redux/actions/actionApp'
 import { useFocusEffect } from '@react-navigation/native'
 import { DrawerActions } from '@react-navigation/native'
+import NewListElement from './NewListElement'
+import ToDoList from './ToDoList'
+import FinishedList from './FinishedList'
 
 const ListTab = (props) => {
 
@@ -35,7 +38,7 @@ const ListTab = (props) => {
 
   return (
     <View style={styles.container}>
-      <View style={{...styles.header, backgroundColor: props.route.params.color}} >
+      <View style={{ ...styles.header, backgroundColor: props.route.params.color }} >
         <Button
           type="clear"
           onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}
@@ -45,9 +48,13 @@ const ListTab = (props) => {
           }
         />
         <View style={styles.wrapperText}>
-        <Text style={styles.text}>{props.route.params.title}</Text>
+          <Text style={styles.text}>{props.route.params.title}</Text>
         </View>
       </View>
+
+      <NewListElement />
+      <ToDoList />
+      <FinishedList />
 
       <Text h1>Title: {props.route.params.title}</Text>
 

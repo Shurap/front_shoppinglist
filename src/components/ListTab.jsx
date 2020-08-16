@@ -22,18 +22,38 @@ const ListTab = (props) => {
     }, [props.route.params.title])
   )
 
-  const arrayItems = props.route.params.list.map((element) => {
-    return (
-      <View key={element._id}>
-        <SingleItem
-          listId={props.route.params.id}
-          id={element._id}
-          note={element.note}
-          count={element.count}
-          completed={element.completed}
-        />
-      </View>
-    )
+
+
+
+  
+  const arrayToDoItems = props.route.params.list.map((element) => {
+    if (element.completed === false)
+      return (
+        <View key={element._id}>
+          <SingleItem
+            listId={props.route.params.id}
+            id={element._id}
+            note={element.note}
+            count={element.count}
+            completed={element.completed}
+          />
+        </View>
+      )
+  })
+
+  const arrayFinishedItems = props.route.params.list.map((element) => {
+    if (element.completed === true)
+      return (
+        <View key={element._id}>
+          <SingleItem
+            listId={props.route.params.id}
+            id={element._id}
+            note={element.note}
+            count={element.count}
+            completed={element.completed}
+          />
+        </View>
+      )
   })
 
   return (
@@ -53,12 +73,16 @@ const ListTab = (props) => {
       </View>
 
       <NewListElement />
-      <ToDoList />
-      <FinishedList />
+      <ToDoList
+        array={arrayToDoItems}
+      />
+      <FinishedList
+        array={arrayFinishedItems}
+      />
 
-      <Text h1>Title: {props.route.params.title}</Text>
+      {/* <Text h1>Title: {props.route.params.title}</Text> */}
 
-      {arrayItems}
+      {/* {arrayItems} */}
     </View>
   )
 }

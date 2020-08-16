@@ -11,6 +11,7 @@ const ToDoList = (props) => {
     <View style={styles.container}>
 
       <Text>ToDoList</Text>
+      {props.array}
 
     </View>
   )
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     // alignItems: 'stretch',
     // justifyContent: 'flex-start',
-    borderWidth: 2,
+    // borderWidth: 2,
     // flexDirection: 'row',
   }
 })

@@ -3,7 +3,7 @@ import { signUpSaga } from '../saga/signUpSaga'
 import { logInSaga } from './logInSaga'
 import { newListSaga } from './newListSaga'
 // import { newItemSaga } from './newItemSaga'
-// import { changeItemSaga } from './changeItemSaga'
+import { changeItemSaga } from './changeItemSaga'
 // import { deleteItemSaga } from './deleteItemSaga'
 import { deleteListSaga } from './deleteListSaga'
 
@@ -13,7 +13,7 @@ export function* mainSaga() {
     fork(logInSaga),
     fork(newListSaga),
     // fork(newItemSaga),
-    // fork(changeItemSaga),
+    fork(changeItemSaga),
     // fork(deleteItemSaga),
     fork(deleteListSaga)
   ])
